@@ -26,7 +26,7 @@ PROXIMAMENTE
 
 - Python
 - Django
-- PostgreSQL (o MongoDB)
+- MySQL
 
 ## Instalación
 
