@@ -39,6 +39,7 @@ class MunicipalityCreateAPIView(generics.CreateAPIView):
         if serializer.is_valid():
             serializer.save()
             return Response({'message': 'Municipio agregado correctamente'}, status=status.HTTP_201_CREATED)  
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 class MunicipalityReadAPIView(generics.ListAPIView):
@@ -87,8 +88,7 @@ class MunicipalityUpdateAPIView(generics.UpdateAPIView):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_200_OK)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-    
+  
 
 class MunicipalityDestroyAPIView(generics.DestroyAPIView):
     """Destroy view for municipalities."""
