@@ -4,7 +4,7 @@ from simple_history.models import HistoricalRecords
 # Create your models here.
 class Municipality(models.Model):
     name = models.CharField('Nombre', max_length=100, null=False, blank=False, unique=True)
-    active = models.BooleanField('Activo', default=False)
+    active = models.BooleanField('Activo', default=True)
     history = HistoricalRecords()
 
     class Meta:
