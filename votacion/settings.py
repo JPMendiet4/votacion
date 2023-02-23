@@ -83,14 +83,15 @@ WSGI_APPLICATION = 'votacion.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'railway',
         'USER': 'root',
-        'PASSWORD': 'fmwsB8ubwsC67Az7GJWJ',
-        'HOST': 'containers-us-west-182.railway.app',
-        'PORT': '6503',
+        'PASSWORD': '4FRl2VDhHg9zA8EDzIuJ',
+        'HOST': 'containers-us-west-88.railway.app',
+        'PORT': '7208',
     }
 }
 
