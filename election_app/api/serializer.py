@@ -8,14 +8,20 @@ class MunicipalitySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Municipality
-        fields = '__all__'
+        fields = ('name',)
+            
         
 
 class PollingStationsSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = PollingStations
-        fields = '__all__'
+        fields = ('name', 'address')
+        
+    def to_representation(self, instance):
+        ret =  super().to_representation(instance)
+        ret['municipality_id'] = instance.name
+        return ret 
         
 class CaptainsSerializer(serializers.ModelSerializer):
 

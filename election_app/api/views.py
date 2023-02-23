@@ -146,3 +146,9 @@ class MunicipalityDestroyAPIView(generics.DestroyAPIView):
 
 
 """Views for PollingStations."""
+
+
+# class PollingStationsCreateAPIView(generics.CreateAPIView):
+#     """Cretation view for PollingStations."""
+#     serializer_class = PollingStationsSerializer
+#     queryset

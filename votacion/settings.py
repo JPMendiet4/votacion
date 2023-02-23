@@ -39,11 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'election_app',
     'rest_framework',
     'rest_framework.authtoken',
     'simple_history',
     'corsheaders',
+    'election_app',
 ]
 
 MIDDLEWARE = [
@@ -152,10 +152,13 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:8080',
     'http://127.0.0.1:9000',
     'https://votacion-production.up.railway.app',
+    'http://181.128.193.160',
 ]
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:8080',
     'http://127.0.0.1:9000',
     'https://votacion-production.up.railway.app',
+    'http://181.128.193.160',
 ]
+
