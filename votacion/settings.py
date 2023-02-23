@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-)*%ys0b*7wz)$%+&89nts@3a*3cj!8=^dm5!x))sf$%q24t4#=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -43,10 +43,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'simple_history',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -82,8 +85,12 @@ WSGI_APPLICATION = 'votacion.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'railway',
+        'USER': 'root',
+        'PASSWORD': 'fmwsB8ubwsC67Az7GJWJ',
+        'HOST': 'containers-us-west-182.railway.app',
+        'PORT': '6503',
     }
 }
 
@@ -138,3 +145,16 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 }
+
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:8080',
+    'http://127.0.0.1:9000',
+    'https://library-production-9190.up.railway.app',
+]
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:8080',
+    'http://127.0.0.1:9000',
+    'https://library-production-9190.up.railway.app',
+]
