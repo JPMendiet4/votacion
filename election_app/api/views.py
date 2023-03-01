@@ -17,6 +17,3 @@ class MunicipalityCreateAPIView(generics.CreateAPIView):
         self.perform_create(serializer)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
-    def perform_create(self, serializer):
-        # Save the object, passing the current user as the creator.
-        serializer.save()

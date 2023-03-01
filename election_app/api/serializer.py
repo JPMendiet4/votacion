@@ -7,6 +7,7 @@ class MunicipalitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Municipality
         fields = ['id', 'name', 'active']
+        
 
     def validate(self, value):
         url = 'https://www.datos.gov.co/resource/xdk5-pm3f.json'
@@ -15,9 +16,7 @@ class MunicipalitySerializer(serializers.ModelSerializer):
             raise serializers.ValidationError('Error al obtener datos del servidor')
         data = response.json()
         municipalities_list = [municipality['municipio'].lower() for municipality in data]
-        if value.lower() not in municipalities_list:
+        municipality_name = value['name']
+        if municipality_name.lower() not in municipalities_list:
             raise serializers.ValidationError('Este municipio no existe en Colombia')
-        return value
-
-    def create(self, validated_data):
-        pass
+        return {'name': municipality_name.lower()}
