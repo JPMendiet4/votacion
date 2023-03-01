@@ -3,7 +3,7 @@ from simple_history.models import HistoricalRecords
 
 # Create your models here.
 class Municipality(models.Model):
-    name = models.CharField('Nombre', max_length=100, null=False, blank=False, unique=True)
+    name = models.CharField('Nombre', max_length=100, null=False, blank=False)
     active = models.BooleanField('Activo', default=True)
     history = HistoricalRecords()
 

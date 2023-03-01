@@ -1,30 +1,23 @@
+import requests
 from rest_framework import serializers
+from election_app.models import Municipality
 
-from election_app.models import (
-Municipality, PollingStations, Captains, Leader, Commune, Neighborhoods, VoterData, LeaderRespNeighborhoods, CaptainCommune
-)
 
 class MunicipalitySerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Municipality
-        fields = ('name',)
-            
-        
+        fields = ['id', 'name', 'active']
 
-class PollingStationsSerializer(serializers.ModelSerializer):
+    def validate(self, value):
+        url = 'https://www.datos.gov.co/resource/xdk5-pm3f.json'
+        response = requests.get(url)
+        if response.status_code != 200:
+            raise serializers.ValidationError('Error al obtener datos del servidor')
+        data = response.json()
+        municipalities_list = [municipality['municipio'].lower() for municipality in data]
+        if value.lower() not in municipalities_list:
+            raise serializers.ValidationError('Este municipio no existe en Colombia')
+        return value
 
-    class Meta:
-        model = PollingStations
-        fields = ('name', 'address')
-        
-    def to_representation(self, instance):
-        ret =  super().to_representation(instance)
-        ret['municipality_id'] = instance.name
-        return ret 
-        
-class CaptainsSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Captains
-        fields = '__all__'
+    def create(self, validated_data):
+        pass
