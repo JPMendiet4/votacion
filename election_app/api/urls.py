@@ -1,13 +1,13 @@
 from django.urls import path
 
 from election_app.api.views import (
-    MunicipalityCreateAPIView
+    MunicipalityCreateAPIView, MunicipalityReadAPIView
     
 )
 
 urlpatterns = [
     path('municipio-crear/', MunicipalityCreateAPIView.as_view(), name='municipio-creacion'),
-    # path('municipio-listar/', MunicipalityReadAPIView.as_view(), name='municipio-votación'),
+    path('municipio-listar/', MunicipalityReadAPIView.as_view(), name='municipio-votación'),
     # path('municipio-actualizar/<int:pk>/', MunicipalityUpdateAPIView.as_view(), name='municipio-votación'),
     # path('municipio-eliminar/<int:pk>/', MunicipalityDestroyAPIView.as_view(), name='municipio-votación'),
     

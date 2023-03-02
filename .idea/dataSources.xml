@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="railway@containers-us-west-88.railway.app" uuid="0fd43665-5916-4798-a94f-a8edc1607820">
+    <data-source source="LOCAL" name="railway@containers-us-west-32.railway.app" uuid="7fc72886-7fd9-48c7-8394-ca53a95a8e66">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://containers-us-west-88.railway.app:7208/railway</jdbc-url>
+      <jdbc-url>jdbc:mysql://containers-us-west-32.railway.app:6116/railway</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
